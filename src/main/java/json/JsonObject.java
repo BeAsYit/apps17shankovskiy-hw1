@@ -45,7 +45,12 @@ public class JsonObject extends Json {
     }
 
     public JsonObject projection(String... names) {
-        // ToDo
-        return null;
+        JsonObject project = new JsonObject();
+        for (JsonPair json:this.jsons) {
+            if(Arrays.asList(names).contains(json.key)){
+                project.jsons.add(json);
+            }
+        }
+        return project;
     }
 }
